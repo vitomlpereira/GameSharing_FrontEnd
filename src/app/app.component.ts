@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GameSharing';
+  showSideMenu:boolean = false;
+
+
+
+  onResize(event){
+    var screenWidth =event.target.innerWidth ;
+  
+    if(screenWidth < 480){
+      this.showSideMenu=true;
+    }else{
+      this.showSideMenu=false;
+    }
+
+  }
+
 }

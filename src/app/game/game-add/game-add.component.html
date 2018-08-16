@@ -1,0 +1,65 @@
+
+<mat-card class="example-card">
+
+    <mat-card-header>
+      <mat-card-title>New Game</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <form [formGroup]="gameForm" (ngSubmit)="submit()">
+          <div class="example-container">
+
+              <mat-form-field>
+                  <input matInput placeholder="Name" name="name" formControlName="name" >
+                  <mat-error *ngIf="gameForm.controls['name'].hasError('required')">
+                     Name is<strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                  <input matInput placeholder="description"  name="description" formControlName="description">
+                  <mat-error *ngIf="gameForm.controls['description'].hasError('required')">
+                      Description is<strong>required</strong>
+                   </mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select placeholder="Select" name="console" formControlName="console">
+                  <mat-option value="1">Dreamcast</mat-option>
+                  <mat-option value="2">PlayStation2</mat-option>
+                  <mat-option value="3">GameCube</mat-option>
+                  <mat-option value="4">Xbox</mat-option>
+                  <mat-option value="5">Xbox360</mat-option>
+                  <mat-option value="6">Wii</mat-option>
+                  <mat-option value="7">NintendoDS</mat-option>
+                  <mat-option value="8">PlayStationPortable</mat-option>
+                  <mat-option value="9">WiiU</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                  <mat-select placeholder="Select" name="genre" formControlName="genre">
+                      <mat-option value="1">Action</mat-option>
+                      <mat-option value="2">Beatemup</mat-option>
+                      <mat-option value="3">Fighting</mat-option>
+                      <mat-option value="4">Platform</mat-option>
+                      <mat-option value="5">Shooter</mat-option>
+                      <mat-option value="6">Survival</mat-option>
+                      <mat-option value="7">ActionAdventure</mat-option>
+                      <mat-option value="8">Stealth</mat-option>
+                      <mat-option value="9">SurvivalHorror</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+
+        <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary" [disabled]="gameForm.invalid">Save</button>
+          </mat-card-actions>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+
+  </mat-card>
+
+
